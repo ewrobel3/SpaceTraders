@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<StackPane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.GameController"
+      id="sceneContainer">
+
+    <stylesheets>
+        <URL value="@styles/mainViewStyles.css"/>
+        <URL value="@styles/marketViewStyles.css"/>
+        <URL value="@styles/encounterViewStyle.css"/>
+
+    </stylesheets>
+
+    <!-- DO NOT TOUCH ANYTHING ABOVE THIS LINE -->
+
+    <BorderPane id="encounterPane" styleClass="closedPane" fx:id="encounterPane">
+        <center>
+            <Label id="situation" styleClass="encounterText"
+                   fx:id="encounterSituation"
+                   alignment="CENTER"
+                   text="a --- demands ---! WHAT DO YOU DO?"/>
+        </center>
+        <bottom>
+            <HBox id="choiceContainer" alignment="CENTER" fx:id="encounterChoiceContainer" spacing="7">
+                <Button id="choice1" styleClass="choices" text="option1" />
+                <Button id="choice2" styleClass="choices" text="option2" />
+                <Button id="choice3" styleClass="choices" text="option3" />
+            </HBox>
+        </bottom>
+    </BorderPane>
+
+    <BorderPane id="marketPane" styleClass="closedPane" fx:id="marketPane">
+        <top>
+            <HBox alignment = "CENTER">
+                <Label id="header" alignment="CENTER" text="MARKET"/>
+            </HBox>
+        </top>
+        <bottom>
+            <BorderPane>
+                <left>
+                    <Button onAction="#toggleMarket"
+                            alignment="CENTER"
+                            styleClass="bigButton"
+                            text="Back"/>
+                </left>
+                <right>
+                    <Label text="Credits: " fx:id="creditsRemaining"
+                           styleClass="bigText"/>
+                </right>
+            </BorderPane>
+        </bottom>
+        <center>
+            <HBox id="mainBox" alignment="CENTER">
+                <VBox spacing="1">
+                    <!-- if you want to include the price of the thing, you can always add it to the button's text -->
+                    <HBox alignment = "CENTER">
+                        <Label text="Buy Goods" styleClass="itemHeaders"/>
+                    </HBox>
+
+                    <VBox id="box1" fx:id="marketBuyGoodsContainer" disable="true" styleClass="marketContainers">
+                        <Button id="good1" text="item1"/>
+                        <Button id="good2" text="item2"/>
+                        <Button id="good3" text="item3"/>
+                        <Button id="good4" text="item4"/>
+                        <Button id="good5" text="item5"/>
+                    </VBox>
+                </VBox>
+
+                <Separator orientation="VERTICAL"/>
+
+                <VBox spacing="1">
+                    <HBox alignment="CENTER">
+                        <Label text="Buy Upgrades" styleClass="itemHeaders"/>
+                    </HBox>
+
+                    <VBox id="box2" fx:id="marketBuyUpgradesContainer" styleClass="marketContainers">
+                        <Button id="upgrade1" text="item1"/>
+                        <Button id="upgrade2" text="item2"/>
+                        <Button id="upgrade3" text="item3"/>
+                        <Button id="upgrade4" text="item4"/>
+                        <Button id="upgrade5" text="item5"/>
+                    </VBox>
+                </VBox>
+
+                <Separator orientation="VERTICAL"/>
+
+                <VBox spacing="1">
+                    <HBox alignment="CENTER">
+                        <Label text="Sell" styleClass="itemHeaders"/>
+                    </HBox>
+                    <VBox id="box3" fx:id="marketSellContainer" styleClass="marketContainers">
+                        <Button id="sell1" text="item1"/>
+                        <Button id="sell2" text="item2"/>
+                        <Button id="sell3" text="item3"/>
+                        <Button id="sell4" text="item4"/>
+                        <Button id="sell5" text="item5"/>
+                    </VBox>
+                </VBox>
+
+                <Separator orientation="VERTICAL"/>
+
+                <VBox spacing="1">
+                    <HBox alignment="CENTER">
+                        <Label text="Inventory" styleClass="itemHeaders"/>
+                    </HBox>
+                    <VBox id="box4" fx:id="marketInventoryContainer" styleClass="marketContainers"/>
+                    <Label id="inventoryEquippedLabel" styleClass="bigText" text="Equipped Items:"/>
+                    <VBox fx:id="marketEquippedContainer"/>
+                    <Button id="equipItem" fx:id="equipButton" text="EQUIP/UNEQUIP"
+                            onAction="#equipClicked"/>
+                </VBox>
+            </HBox>
+        </center>
+    </BorderPane>
+
+
+    <HBox>
+        <AnchorPane id="mapPane" fx:id="mapPane">
+            <ScatterChart fx:id="universeMap">
+                <xAxis>
+                    <NumberAxis autoRanging="false" lowerBound="-5" upperBound="105"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis autoRanging="false" lowerBound="-5" upperBound="105"/>
+                </yAxis>
+            </ScatterChart>
+        </AnchorPane>
+        <VBox id="sidebar">
+            <VBox id="systemInfoBox"
+                  VBox.vgrow="ALWAYS"
+                  alignment="TOP_CENTER"
+                  spacing = "5">
+                <Label text="Star System Info" styleClass="bigText"/>
+                <Label text="where is where i am called" fx:id="planetName" styleClass="small-text"/>
+                <Label text="where am i" fx:id="planetCoordinates" styleClass="small-text"/>
+                <Label text="how techy are we" fx:id="planetTechLevel" styleClass="small-text"/>
+                <Label text="what's going on here" fx:id="planetDescription" styleClass="small-text"/>
+            </VBox>
+
+            <VBox id = "marketBox"
+                  VBox.vgrow = "ALWAYS"
+                  alignment="TOP_CENTER"
+                  spacing = "5">
+                <Button styleClass="bigButton" text="Open Market" onAction="#toggleMarket"/>
+                <Separator/>
+                <Label styleClass="bigText" fx:id="buyFuelLabel" text="Buy 0 fuel"/>
+                <Button fx:id="buyFuelButton" styleClass="bigButton"
+                        text="Cost: ©0" onAction="#buyFuel"/>
+                <Separator/>
+                <HBox alignment="CENTER">
+                    <Label text="Repair 1" styleClass="small-text"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button text="Cost: ©11" fx:id="repairSingleButton" onAction="#repairSingle"/>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <Label text="Repair max" styleClass="small-text"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button text="Cost: ©550" fx:id="repairMaxButton" onAction="#repairMax"/>
+                </HBox>
+            </VBox>
+
+            <VBox id = "travelBox"
+                  VBox.vgrow="ALWAYS"
+                  alignment="CENTER"
+                  spacing="10">
+                <HBox alignment="CENTER"
+                      spacing = "2">
+                    <Label text="Fuel Cost: " styleClass="bigText" />
+                    <Label styleClass="bigText" text="0 fuel" fx:id="travelCostLabel"/>
+                </HBox>
+                <Button text = "Warp" styleClass="bigButton"
+                        onAction="#warpButtonClicked"/>
+            </VBox>
+        </VBox>
+    </HBox>
+</StackPane>

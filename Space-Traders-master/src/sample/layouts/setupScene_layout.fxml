@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      id="sceneContainer"
+      fx:controller="sample.PregameController"
+      spacing="100">
+    <stylesheets>
+        <URL value="@styles/globalStyles.css"/>
+    </stylesheets>
+    <fx:define>
+        <!-- Minimum and maximum values for skillpoints -->
+        <Integer fx:id="minSkillValue" fx:value="1"/>
+        <Integer fx:id="maxSkillValue" fx:value="10"/>
+    </fx:define>
+
+    <HBox spacing="20" alignment="TOP_CENTER">
+        <Label text="NAME:"/>
+        <TextField prefWidth="500" fx:id="nameBox" onKeyTyped="#nameChanged"/>
+    </HBox>
+
+    <HBox spacing="50" alignment="CENTER">
+        <!-- Difficulty Selection buttons -->
+        <fx:define>
+            <ToggleGroup fx:id="difficultyGroup"/>
+        </fx:define>
+        <RadioButton toggleGroup="$difficultyGroup"
+                     onAction="#changeDifficulty"
+                     onKeyReleased="#changeDifficulty" text="Easy"/>
+        <RadioButton toggleGroup="$difficultyGroup"
+                     onAction="#changeDifficulty"
+                     onKeyReleased="#changeDifficulty" text="Medium" selected="true"/>
+        <RadioButton toggleGroup="$difficultyGroup"
+                     onAction="#changeDifficulty"
+                     onKeyReleased="#changeDifficulty" text="Hard"/>
+    </HBox>
+
+    <HBox spacing="60" alignment="CENTER">
+        <!-- Integer spinners to allocate skill points -->
+        <HBox spacing="10">
+            <Label text="Pilot"/>
+            <Spinner min="$minSkillValue"
+                     max="$maxSkillValue"
+                     fx:id="pilotSpinner"
+                     onMouseReleased="#spinnerChanged"
+                     onKeyReleased="#spinnerChanged"/>
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Fighter"/>
+            <Spinner min="$minSkillValue"
+                     max="$maxSkillValue"
+                     fx:id="fighterSpinner"
+                     onMouseReleased="#spinnerChanged"
+                     onKeyReleased="#spinnerChanged"/>
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Merchant"/>
+            <Spinner min="$minSkillValue"
+                     max="$maxSkillValue"
+                     fx:id="merchantSpinner"
+                     onMouseReleased="#spinnerChanged"
+                     onKeyReleased="#spinnerChanged"/>
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Engineer"/>
+            <Spinner min="$minSkillValue"
+                     max="$maxSkillValue"
+                     fx:id="engineerSpinner"
+                     onMouseReleased="#spinnerChanged"
+                     onKeyReleased="#spinnerChanged"/>
+        </HBox>
+    </HBox>
+
+    <BorderPane>
+        <left>
+            <Button text="Back" alignment="BASELINE_LEFT" onAction="#startScene"/>
+        </left>
+        <center>
+            <HBox alignment="CENTER">
+                <Label text="Points left: "/>
+                <Label fx:id="pointsLeftLabel" text="16"/>
+            </HBox>
+        </center>
+        <right>
+            <Button text="Next" alignment="BASELINE_RIGHT" onAction="#confirmationPage"/>
+        </right>
+    </BorderPane>
+</VBox>

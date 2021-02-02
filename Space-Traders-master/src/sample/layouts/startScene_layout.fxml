@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<VBox spacing="30"
+      alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.PregameController"
+      id="sceneContainer">
+    <stylesheets>
+        <URL value="@styles/globalStyles.css"/>
+    </stylesheets>
+    <ImageView fitWidth="800" fitHeight="450" preserveRatio="true">
+        <Image url="@../images/spaceTraderTitleLabel.png"/>
+    </ImageView>
+    <HBox alignment="BASELINE_CENTER" spacing="100">
+        <Button text="New Game" onAction="#newGame"/>
+        <Button text="Credits" onAction="#showCreditsScreen"/>
+    </HBox>
+</VBox>

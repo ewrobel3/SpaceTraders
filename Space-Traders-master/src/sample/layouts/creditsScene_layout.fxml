@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.CreditsController"
+            prefHeight="400.0" prefWidth="600.0"
+            id="sceneContainer">
+
+    <stylesheets>
+        <URL value="@styles/endViewStyles.css"/>
+        <URL value="@styles/globalStyles.css"/>
+    </stylesheets>
+
+    <center>
+        <VBox alignment="CENTER">
+            <Label text="CREATORS"/>
+            <Label text="Lawrence Williams"/>
+            <Label text="Samuel Sanders"/>
+            <Label text="Erin Wrobel"/>
+            <Label text="Rebecca Tafete"/>
+            <Separator/>
+            <Label text="CS 2340"/>
+            <Label text= "Dr. Aibek Musaev"/>
+            <Label text="TA: Parsa Esfahani \o/"/>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="21">
+            <Button text="MAIN MENU" onAction="#fromTheTop"/>
+        </HBox>
+    </bottom>
+</BorderPane>

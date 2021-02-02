@@ -1,0 +1,160 @@
+#sceneContainer {
+    -fx-background-image: url("../../images/gameback.png");
+    -fx-padding: 5em; /*Adds a border around the inside edge of the window*/
+    -fx-pref-width: 80em;
+    -fx-pref-height: 50em;
+
+    MAP_BACKGROUND: black;
+    UNVISITED_SYSTEM_COLOR: #888;
+    VISITED_SYSTEM_COLOR: green;
+    INRANGE_SYSTEM_COLOR: blue;
+    CURRENT_SYSTEM_COLOR: red;
+
+    /*Color constant definitions for easy modifications*/
+    COLOR_PRIMARY: #81B7E7;
+    COLOR_SECONDARY: #535A73;
+    COLOR_SECONDARY_TEXT: #9FBFDF;
+    COLOR_SELECTED: #2952D9;
+    COLOR_BACKGROUND: #162736;
+}
+
+/* BUTTON STUFF */
+.button, .radio-button {
+    -fx-background-color: transparent;
+    -fx-border-style: solid inside;
+    -fx-border-radius: 0.1em;
+    -fx-border-width: 0.1em;
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-font: 10pt "Quantico";
+}
+.button:hover, .radio-button:hover {
+    -fx-effect: dropshadow(gaussian, COLOR_PRIMARY, 20, 0.2, 0, 0);
+    -fx-background-color: COLOR_SELECTED;
+    -fx-background-opacity: 10%;
+}
+
+.radio-button {
+    -fx-padding: 0px 0.3em 0px 0px; /*No touch*/
+}
+
+.radio, .dot {
+    -fx-padding: 0px;
+}
+
+.button, .text-field, .radio-button {
+    -fx-padding: 0.1em, inherit;
+}
+
+.radio-button:selected {
+    -fx-effect: dropshadow(gaussian, COLOR_PRIMARY, 15, 0.2, 0, 0);
+    -fx-background-color: COLOR_SELECTED;
+}
+
+/* BOX STUFF */
+#fuelBox {
+    -fx-padding: 1em;
+    -fx-max-height: 6em;
+}
+
+#systemInfoBox, #marketBox {
+    -fx-padding: 1.3em;
+    -fx-max-height: 17em;
+}
+
+#travelBox {
+    -fx-max-height: 8em;
+    -fx-min-height: 4em;
+}
+
+#sidebar {
+    -fx-min-width: 17em;
+    -fx-max-height: 46em;
+    -fx-min-height: 45em;
+}
+
+/*BORDER STUFF*/
+#sidebar {
+    -fx-border-style: solid inside;
+    -fx-border-radius: 0.3em;
+    -fx-border-width: 0.3em;
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-pref-width: 30em;
+}
+#systemInfoBox, #marketBox {
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-border-width: 0 0 0.1em 0;
+}
+
+/* FONT STUFF */
+#systemInfoTitle, #marketTitle, #fuelInfo, .bigText, .bigButton {
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-font:  15pt "Quantico";
+}
+.small-text {
+    -fx-text-fill: COLOR_SECONDARY_TEXT;
+    -fx-font: 10pt "Quantico";
+}
+
+#fuelCost {
+    -fx-text-fill: COLOR_SECONDARY_TEXT;
+    -fx-font: 15pt "Quantico";
+}
+
+/* MAP STUFF */
+#mapPane {
+    -fx-min-width: 56em;
+    -fx-pref-height: inherit;
+}
+#universeMap {
+    -fx-min-width: inherit;
+    -fx-pref-height: inherit;
+    -fx-background: MAP_BACKGROUND;
+}
+.chart-symbol {
+    -fx-cursor: crosshair;
+}
+/* Styles for unvisited systems */
+.default-color0.chart-symbol {
+    -fx-background-color: UNVISITED_SYSTEM_COLOR;
+    NODE_COLOR: UNVISITED_SYSTEM_COLOR;
+}
+/* styles for in-range but unvisited systems */
+.inrange-system.chart-symbol {
+    -fx-background-color: INRANGE_SYSTEM_COLOR;
+    NODE_COLOR: INRANGE_SYSTEM_COLOR;
+}
+/* Styles for visited systems */
+.visited-system.chart-symbol {
+    -fx-background-color: VISITED_SYSTEM_COLOR;
+    NODE_COLOR: VISITED_SYSTEM_COLOR;
+}
+/* Styles for current system */
+.current-system.chart-symbol {
+    -fx-background-color: CURRENT_SYSTEM_COLOR;
+    NODE_COLOR: CURRENT_SYSTEM_COLOR;
+}
+.chart-symbol:hover, .chart-symbol.selected {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+    -fx-effect: dropshadow(gaussian, NODE_COLOR, 20, 0.5, 0, 0);
+}
+.chart-symbol:hover {
+    -fx-effect: dropshadow(gaussian, NODE_COLOR, 20, 0.2, 0, 0);
+}
+
+.chart-plot-background {
+    -fx-border-style: solid inside;
+    -fx-border-radius: 0.3em;
+    -fx-border-width: 0.3em;
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-cursor: crosshair;
+}
+NumberAxis, .chart-vertical-zero-line, .chart-horizontal-zero-line {
+    -fx-opacity: 0;
+}
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: transparent;
+    -fx-cursor: crosshair;
+}
+

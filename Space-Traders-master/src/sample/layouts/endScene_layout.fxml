@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="sample.EndScreenController"
+           id="sceneContainer">
+
+    <stylesheets>
+        <URL value="@styles/endViewStyles.css"/>
+        <URL value="@styles/globalStyles.css"/>
+    </stylesheets>
+
+    <!-- DO NOT TOUCH ANYTHING ABOVE THIS LINE -->
+
+    <BorderPane id="endScreenPane">
+        <center>
+            <!-- this image doesn't exist atm
+            <ImageView fitWidth="550" fitHeight="250" preserveRatio="true">
+                <Image url = "@../images/gameOverLabel.png"/>
+            </ImageView>
+            -->
+            <VBox alignment="CENTER" spacing="7">
+                <Label fx:id="endMessageLabel"
+                       id="endGameMessage"
+                       text="insert winning or losing message here"/>
+            </VBox>
+        </center>
+
+        <bottom>
+            <HBox alignment="CENTER" spacing="7">
+                <Button id="nextButton" text="NEXT"
+                        onAction="#rollCredits"/>
+            </HBox>
+        </bottom>
+    </BorderPane>
+</StackPane>

@@ -1,0 +1,48 @@
+#marketPane {
+    -fx-background-color: COLOR_BACKGROUND;
+    -fx-padding: 0.5em;
+    -fx-border-style: solid inside;
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-border-width: 0.3em;
+    -fx-border-radius: 0.3em;
+}
+
+.closedPane {
+    visibility: hidden;
+}
+
+.marketContainers > .button {
+    -fx-background-color: transparent;
+    -fx-border-style: solid inside;
+    -fx-border-width: 0em;
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-font: 11pt "Quantico";
+    -fx-fit-to-width: true;
+    -fx-padding: 3;
+    -fx-wrap-text: true;
+
+}
+
+#header {
+    -fx-font: bold 30pt "Quantico";
+    -fx-text-fill: COLOR_PRIMARY;
+}
+
+.itemHeaders {
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-font: bold 17pt "Quantico";
+
+}
+
+#box1, #box2, #box3, #box4 {
+    -fx-min-width: 14em;
+    -fx-pref-width: 17em;
+    -fx-padding: .5em;
+
+}
+
+.separator *.line {
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-border-width: 0.1em;
+    -fx-opacity: 0.25;
+}

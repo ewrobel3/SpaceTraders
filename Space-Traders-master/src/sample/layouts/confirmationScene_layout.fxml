@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.PregameController"
+            fx:id="confirmationSceneContainer"
+            id="sceneContainer">
+    <stylesheets>
+        <URL value="@styles/globalStyles.css"/>
+    </stylesheets>
+    <top>
+        <Label text="PLAYER INFO" alignment="CENTER"/>
+    </top>
+    <center>
+        <VBox spacing="20">
+            <Label text="Name: %s" fx:id="confirmNameLabel"/>
+            <Label text="Difficulty: %s" fx:id="confirmDifficultyLabel"/>
+            <Label text="Skillpoints:"/>
+            <Label text="    Pilot: %d  Fighter: %d  Merchant: %d  Engineer: %d" fx:id="confirmPointsAllocation"/>
+            <Label text="Starting Credits: %d" fx:id="confirmStartingCredits"/>
+        </VBox>
+    </center>
+    <bottom>
+        <BorderPane>
+            <left>
+                <Button text="Back" onAction="#newGame"/>
+            </left>
+            <right>
+                <Button text="Play" onAction="#launchGame"/>
+            </right>
+        </BorderPane>
+    </bottom>
+</BorderPane>

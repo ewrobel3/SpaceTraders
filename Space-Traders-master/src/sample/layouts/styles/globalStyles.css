@@ -1,0 +1,67 @@
+#sceneContainer {
+	-fx-background-image: url("../../images/gameback.png");
+    -fx-padding: 2em; /*Adds a border around the inside edge of the window*/
+
+    -fx-pref-width: 80em;
+    -fx-pref-height: 50em;
+
+	/*Color constant definitions for easy modifications*/
+	COLOR_PRIMARY: #81B7E7;
+	COLOR_SECONDARY: #535A73;
+	COLOR_SELECTED: #2952D9;
+}
+
+.label, .radio-button, .spinner, .text-field, .button {
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-font: bold 20pt "Quantico";
+}
+
+/*Styling for transparent elements with borders*/
+.spinner, .radio-button, .button {
+    -fx-background-color: transparent;
+    -fx-border-style: solid inside;
+    -fx-border-radius: 0.1em;
+    -fx-border-width: 0.1em;
+    -fx-border-color: COLOR_PRIMARY;
+}
+
+.button, .text-field {
+    -fx-padding: 0.1em, inherit;
+}
+
+.text-field {
+    -fx-background-color: COLOR_SECONDARY;
+    -fx-background-opacity: 5%;
+}
+
+.radio-button {
+    -fx-padding: 0px 0.3em 0px 0px; /*No touch*/
+}
+
+.radio-button:selected, .button:hover {
+    -fx-effect: dropshadow(gaussian, COLOR_PRIMARY, 20, 0.2, 0, 0);
+    -fx-background-color: COLOR_SELECTED;
+    -fx-background-opacity: 10%;
+}
+
+/*Uses magic to hide the circle on the radio buttons.*/
+.radio, .dot {
+    -fx-padding: 0px;
+}
+
+.increment-arrow-button, .decrement-arrow-button {
+    -fx-color: COLOR_PRIMARY;
+    -fx-padding: inherit, 0.5em;
+}
+
+.increment-arrow, .decrement-arrow {
+    -fx-padding: 0.3em, inherit;
+}
+
+.spinner > .text-field {
+    -fx-pref-width: 2em;
+    -fx-padding: 0px;
+    -fx-text-fill: COLOR_PRIMARY;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}

@@ -1,0 +1,16 @@
+.endScreen {
+
+}
+
+#endGameMessage {
+    -fx-effect: dropshadow(gaussian, GRAY, 5, 0.25, .25, .25);
+    -fx-font: 25pt "Quantico";
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.separator *.line {
+    -fx-border-color: COLOR_PRIMARY;
+    -fx-border-width: 0.1em;
+    -fx-opacity: 0.25;
+}
